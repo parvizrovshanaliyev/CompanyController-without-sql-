@@ -1,0 +1,12 @@
+C:\Users\S510UF\source\repos\CompanyController\CompanyController\obj\Debug\CompanyController.csprojAssemblyReference.cache
+C:\Users\S510UF\source\repos\CompanyController\CompanyController\obj\Debug\CompanyController.CompanyUniversalPanel.resources
+C:\Users\S510UF\source\repos\CompanyController\CompanyController\obj\Debug\CompanyController.Properties.Resources.resources
+C:\Users\S510UF\source\repos\CompanyController\CompanyController\obj\Debug\CompanyController.csproj.GenerateResource.cache
+C:\Users\S510UF\source\repos\CompanyController\CompanyController\obj\Debug\CompanyController.csproj.CoreCompileInputs.cache
+C:\Users\S510UF\source\repos\CompanyController\CompanyController\bin\Debug\CompanyController.exe.config
+C:\Users\S510UF\source\repos\CompanyController\CompanyController\bin\Debug\CompanyController.exe
+C:\Users\S510UF\source\repos\CompanyController\CompanyController\bin\Debug\CompanyController.pdb
+C:\Users\S510UF\source\repos\CompanyController\CompanyController\obj\Debug\CompanyController.exe
+C:\Users\S510UF\source\repos\CompanyController\CompanyController\obj\Debug\CompanyController.pdb
+C:\Users\S510UF\source\repos\CompanyController\CompanyController\obj\Debug\CompanyController.AddWorkerPanel.resources
+C:\Users\S510UF\source\repos\CompanyController\CompanyController\obj\Debug\CompanyController.HourlPayCalcPanel.resources
