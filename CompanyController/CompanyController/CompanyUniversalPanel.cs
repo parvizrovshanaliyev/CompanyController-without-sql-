@@ -15,8 +15,9 @@ namespace CompanyController
         public CompanyUniversalPanel()
         {
             InitializeComponent();
-            dataGridView1.DataSource = DataBase.Workers;
+            dataGridViewUniversal.DataSource = DataBase.Workers;
         }
+
 
         #region Average   Maas ortalamasinin hesablanmasi  uzun variant  ve qisa variant
         private void btnAverage_Click(object sender, EventArgs e)
@@ -36,12 +37,15 @@ namespace CompanyController
             var workers = DataBase.Workers;
             var maaslar = from worker in workers
                           select worker.WorkerPay;
-             var custom = workers.Where(item => item.WorkerPay > maaslar.Average());
+            var custom = workers.Where(item => item.WorkerPay > maaslar.Average());
+            listBox1.Items.Clear();
             foreach (var item in custom)
             {
+               
                 //  MessageBox.Show((item.WorkerName).ToString());
                 // listBox1.DisplayMember ="WorkerName";
                 // listBox1.DataSource = DataBase.Workers;
+
 
                 listBox1.Items.Add(item.WorkerId+" . " + item.WorkerName + " " + item.WorkerSurname+" : "+ item.WorkerPay);                //avg short version
 
@@ -49,7 +53,7 @@ namespace CompanyController
             var avg = maaslar.Average();
             MessageBox.Show(avg.ToString());
             #endregion
-
+           
         }
         #endregion
 
@@ -59,6 +63,29 @@ namespace CompanyController
             addWorkerPanel.Show();
         }
 
-        
+        private void btnDeleteWorker_Click(object sender, EventArgs e)
+        {
+           // int index = dataGridView1.CurrentRow.Index;
+            dataGridViewUniversal.Rows.RemoveAt(dataGridViewUniversal.CurrentRow.Index);
+          //  MessageBox.Show(index.ToString());
+        }
+
+        private void btnclearlist_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+        }
+
+        private void btnAllWorkers_Click(object sender, EventArgs e)
+        {
+            var upsource = new BindingSource();
+            upsource.DataSource = DataBase.Workers;
+            dataGridViewUniversal.DataSource = upsource;
+        }
+
+        private void btnSalaryCalcPanel_Click(object sender, EventArgs e)
+        {
+            var salarycalcpanel = new HourlPayCalcPanel();
+            salarycalcpanel.Show();
+        }
     }
 }
