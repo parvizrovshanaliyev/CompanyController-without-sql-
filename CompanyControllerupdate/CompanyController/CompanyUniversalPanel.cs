@@ -77,9 +77,10 @@ namespace CompanyController
 
         private void btnAllWorkers_Click(object sender, EventArgs e)
         {
-            var upsource = new BindingSource();
-            upsource.DataSource = DataBase.Workers;
-            dataGridViewUniversal.DataSource = upsource;
+            ExtensionsClass.UpdateSources(dataGridViewUniversal);
+            //var upsource = new BindingSource();
+            //upsource.DataSource = DataBase.Workers;
+            //dataGridViewUniversal.DataSource = upsource;
         }
 
         private void btnSalaryCalcPanel_Click(object sender, EventArgs e)

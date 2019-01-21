@@ -37,10 +37,10 @@ namespace CompanyController
 
             MessageBox.Show(startDate.ToString());
 
-
-            var upsource = new BindingSource();
-            upsource.DataSource = DataBase.Workers;
-            dataGridViewSalaryCalc.DataSource = upsource;
+            ExtensionsClass.UpdateSources(dataGridViewSalaryCalc);
+            //var upsource = new BindingSource();
+            //upsource.DataSource = DataBase.Workers;
+            //dataGridViewSalaryCalc.DataSource = upsource;
 
         }
 
@@ -79,10 +79,11 @@ namespace CompanyController
             }
             MessageBox.Show(exitDate.ToString());
 
+            ExtensionsClass.UpdateSources(dataGridViewSalaryCalc);
 
-            var upsource = new BindingSource();
-            upsource.DataSource = DataBase.Workers;
-            dataGridViewSalaryCalc.DataSource = upsource;
+            //var upsource = new BindingSource();
+            //upsource.DataSource = DataBase.Workers;
+            //dataGridViewSalaryCalc.DataSource = upsource;
         }
 
         
@@ -100,12 +101,12 @@ namespace CompanyController
 
                 }
             }
-           // MessageBox.Show(comboBox1.ToString());
+            // MessageBox.Show(comboBox1.ToString());
 
-
-            var upsource = new BindingSource();
-            upsource.DataSource = DataBase.Workers;
-            dataGridViewSalaryCalc.DataSource = upsource;
+            ExtensionsClass.UpdateSources(dataGridViewSalaryCalc);
+            //var upsource = new BindingSource();
+            //upsource.DataSource = DataBase.Workers;
+            //dataGridViewSalaryCalc.DataSource = upsource;
         }
 
         private void btnCalc_Click(object sender, EventArgs e)
@@ -123,18 +124,25 @@ namespace CompanyController
                     Startday = item.WorkerStartDate;
                     DateTime Exitdate = dateTimePickerExit.Value.AddMinutes(1);
 
-                    int money = item.WorkerHourlyPay;
+                    decimal WorkerHourlymoney = item.WorkerHourlyPay;
+                    decimal WorkerDailymoney = item.WorkerDailyPay;
                     minus = Exitdate - Startday;      // datetimepicker
+                   
                     //  minus = Exitday - Startday; // DateTime.now
+                    decimal minute = minus.Minutes;
+                    decimal hours = minus.Hours;
 
-                    item.WorkerDailyPay = (minus.Hours * money);
 
+                    WorkerDailymoney = hours * (decimal)(WorkerHourlymoney) + minute * (decimal)(WorkerHourlymoney/60);//+(minus.Minutes*(Pul/Saat) bunu nece double edim ? :/
+                    item.WorkerDailyPay = Math.Round(WorkerDailymoney,2,MidpointRounding.ToEven);
+                    MessageBox.Show(Math.Round(WorkerDailymoney, 2, MidpointRounding.ToEven).ToString());
                     MessageBox.Show(minus.Days.ToString() + " :" + minus.Hours.ToString() + " :" + minus.Minutes.ToString() + ">>>> " + item.WorkerDailyPay.ToString());
                     MessageBox.Show(item.WorkerDailyPay.ToString());
 
-                    var upsource = new BindingSource();
-                    upsource.DataSource = DataBase.Workers;
-                    dataGridViewSalaryCalc.DataSource = upsource;
+                    ExtensionsClass.UpdateSources(dataGridViewSalaryCalc);
+                    //var upsource = new BindingSource();
+                    //upsource.DataSource = DataBase.Workers;
+                    //dataGridViewSalaryCalc.DataSource = upsource;
 
 
                 }

@@ -21,7 +21,7 @@ namespace CompanyController
         public DateTime WorkerStartDate { get; set; }
         public DateTime WorkerExitDate { get; set; }
         public int WorkerHourlyPay { get; set; }
-        public int WorkerDailyPay { get; set; }
+        public decimal WorkerDailyPay { get; set; }
 
         public Worker(string workerName, string workerSurname, string workerWork, int workerPay, int workernumber, string workerEmail, DateTime workerRegDate)//,DateTime workerStartDate, DateTime workerExitDate
         {

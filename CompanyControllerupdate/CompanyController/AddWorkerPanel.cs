@@ -36,10 +36,12 @@ namespace CompanyController
             //DataBase.Workers.Add(new Worker(1, Parviz, Aliyev, Coder, Convert.ToInt32(1000), Convert.ToInt32(050 - 685 - 69 - 15), parvizra@codeeduaz, DateTime.Now))
             MessageBox.Show("New worker added");
 
-            var upsource = new BindingSource();
-            upsource.DataSource = DataBase.Workers;
-            dataGridViewAddWorker.DataSource = upsource;
-            
+            ExtensionsClass.UpdateSources(dataGridViewAddWorker);
+
+            //var upsource = new BindingSource();
+            //upsource.DataSource = DataBase.Workers;
+            //dataGridViewAddWorker.DataSource = upsource;
+
         }
     }
 }
